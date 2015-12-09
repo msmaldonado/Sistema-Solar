@@ -1,2 +1,1 @@
-# Sistema-Solar
-Asignatura Mecánica Celeste.
+# Mecánica Celeste
