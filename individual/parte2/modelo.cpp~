@@ -1,0 +1,202 @@
+
+
+#include "modelo.h"
+
+
+
+
+Modelo :: Modelo(){
+rotA=0,rot1=0,rot2=0,rot3=0,rot4=0,rot5=0,rot6=0,rot7=0,rot8=0; //como rota con respecto a x,z
+ rdS=30,rd1=6, rd2=12,rd3=9,rd4=6,rd5=18,rd6=15,rd7=12,rd8=12; //radio de los planetas
+
+}
+
+Modelo :: ~Modelo(){
+
+}
+
+
+
+
+void Modelo::sol(){
+     glColor3f(1.0,1.0,0.0);
+     glutSolidSphere(rdS,60,60);
+}
+void Modelo::mercurio(){
+     glColor3f(0.4,0.4,0.4);
+     glutSolidSphere(rd1,60,60);
+}
+void Modelo::venus(){
+     glColor3f(1.0,0.2,0.0);
+     glutSolidSphere(rd2,60,60);
+}
+void Modelo::tierra(){
+     glColor3f(0.0,0.4,1.0);
+     glutSolidSphere(rd3,60,60);
+}
+void Modelo::marte(){
+     glColor3f(0.2,0.4,0.3);
+     glutSolidSphere(rd4,60,60);
+}
+void Modelo::jupiter(){
+     glColor3f(0.2,0.2,0.2);
+     glutSolidSphere(rd5,60,60);
+}
+void Modelo::saturno(){
+     glColor3f(1.0,0.4,0.0);
+     glutSolidSphere(rd6,60,60);
+}
+
+void Modelo::urano(){
+     glColor3f(0.2,1.0,0.2);
+     glutSolidSphere(rd7,60,60);
+}
+void Modelo::anillos(){
+     glColor3f(1,0.6,0);
+     glRotatef(rotA,1,0,1);
+     glutSolidTorus(3, 20, 10,50);
+}
+
+void Modelo::neptuno(){
+     glColor3f(0.0,0.0,1.0);
+     glutSolidSphere(rd8,60,60);
+}
+
+
+void Modelo::estrellas(){
+    int i,j,k; srand(time(NULL));
+    int h=0;
+         glBegin(GL_POINTS);
+         while(h<100){
+         i=(rand()%300);
+         j=(rand()%300);
+         k=(rand()%300);
+           glColor3f(1,1,1);
+           glVertex3f(i,j,k);
+           glVertex3f(i,-j,k);
+           glColor3f(0,1,0);
+           glVertex3f(-i,-j,k);
+           glColor3f(0,0,1);
+           glVertex3f(-i,j,-k);
+           h++;}
+    glEnd();
+
+}
+
+
+
+void Modelo::dibuja_Sistema(){
+   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+     glLoadIdentity();
+     gluLookAt(1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0);
+     estrellas();
+     sol();
+
+    //rotacion y traslacion para mercurio
+     glPushMatrix();     
+     glRotatef(rot1,0,1,0);
+      glTranslatef(-40,0,0);
+     mercurio();
+     glPopMatrix();
+    //rotacion y traslacion para venus
+     glPushMatrix();
+     glRotatef(rot2,0,1,0);
+     glTranslatef(60,0,0);
+     venus();
+     glPopMatrix();
+    //rotacion y tralacion para tierra
+     glPushMatrix();
+     glRotatef(rot3,0,1,0);
+     glTranslatef(0,0,-80);
+     tierra();
+     glPopMatrix();
+    //rotacion y traslacion para marte
+     glPushMatrix();
+     glRotatef(rot4,0,1,0);
+     glTranslatef(100,0,0);
+     marte();
+     glPopMatrix();
+    //rotacion y traslacion para jupiter
+     glPushMatrix();
+     glRotatef(rot5,0,1,0);
+     glTranslatef(-120,0,0);
+     jupiter();
+     glPopMatrix();
+    //rotacion y traslacion para saturno y anillo
+     glPushMatrix();
+     glRotatef(rot6,0,1,0);
+     glTranslatef(0,0,160);
+     saturno();
+     anillos();
+     glPopMatrix();
+
+    //rotacion y traslacion para urano
+     glPushMatrix();
+     glRotatef(rot7,0,1,0);
+     glTranslatef(-170,0,0);
+     urano();
+     glPopMatrix();
+
+    //rotacion y traslacion para neptuno
+     glPushMatrix();
+     glRotatef(rot8,0,1,0);
+     glTranslatef(195,0,0);
+     neptuno();
+     glPopMatrix();
+
+     glutSwapBuffers();
+   
+}
+
+//Giros
+void Modelo::velocidad1(){
+    rotA=rotA+0.03;
+     rot1=rot1+0.1;
+     rot2=rot2+0.015;
+     rot3=rot3+0.013;
+     rot4=rot4+0.05;
+     rot5=rot5+0.04;
+     rot6=rot6+0.03;
+     rot7=rot7+0.02;
+     rot8=rot8+0.01;
+}
+
+void Modelo::velocidad2(){
+    rotA=rotA+0.045;
+    rot1=rot1+0.15;
+     rot2=rot2+0.0225;
+     rot3=rot3+0.0195;
+     rot4=rot4+0.075;
+     rot5=rot5+0.06;
+     rot6=rot6+0.045;
+     rot7=rot7+0.03;
+     rot8=rot8+0.015;
+
+}
+void Modelo::velocidad3(){
+    rotA=rotA+0.101;
+
+    rot1=rot1+0.225;
+     rot2=rot2+0.0337;
+     rot3=rot3+0.0292;
+     rot4=rot4+0.1125;
+     rot5=rot5+0.09;
+     rot6=rot6+0.0675;
+     rot7=rot7+0.045;
+     rot8=rot8+0.0225;
+
+}
+//Ahora no se usa poner 1.5
+void Modelo::velocidad4(){
+    rotA=rotA+2.1515;
+    rot1=rot1+2.3376;
+    rot2=rot2+2.05055;
+    rot3=rot3+2.0438;
+    rot4=rot4+2.16875;
+    rot5=rot5+2.135;
+    rot6=rot6+2.10125;
+    rot7=rot7+2.0675;
+    rot8=rot8+2.03375;
+
+}
+
