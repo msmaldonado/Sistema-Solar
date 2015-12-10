@@ -22,9 +22,10 @@ int main (int argc, char *argv[]){
   	}
 
 	if (numero == 1)
-		system("./mecanica1");
+		//system("g++ ./parte1/parte1.cpp -o ./parte1/mecanica1");
+		system("./parte1/mecanica1");	
 	else if (numero == 2)
-		system("./mecanica2");
+		system("./parte2/mecanica2");
 	else if (numero == 3)
 		exit(0);
 	
