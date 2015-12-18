@@ -1,0 +1,12 @@
+Para compilar usamos make
+
+
+teclas:
+
+q --> quitar
+
+1-4 --> distintas velocidades de giro
+
++/-  --> ampliar y reducir 
+
+flechas --> para mover el ángulo de visión

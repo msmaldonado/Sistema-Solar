@@ -2,7 +2,7 @@
 ==================
 
 - Realizado por:
-	+ Lorena Álvarez planeta
+	+ Lorena Álvarez Plana
 	+ María Teresa Calvo Muñoz
 	+ María Oliver Balsalobre
 	+ Miguel Sanchez Maldonado
